@@ -3,23 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dave Web Dev Ref</title>
+    <title>Dave's WebDevRef</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header>
-      <h1>Dave's Web Development Quick Reference</h1>
+    <header><h1>Dave's Web Development Quick Reference</h1>
       <nav>
         <ul>
-          <li><a href="#project">Project</a></li>
-          <li><a href="#html">HTML</a></li>
-          <li><a href="#css">CSS</a></li>
+          <li><a href="#project-pipeline">Project Pipeline</a></li>
+          <li><a href="#HTML">HTML</a></li>
+          <li><a href="#CSS">CSS</a></li>
+
+          <!--ADD IN LATER
+          <li><a href="#JavaScript">JavaScript</a></li>
+          -->
+
         </ul>
       </nav>
     </header>
     <main>
-      <section id="project">
-        <h2>Project Management</h2>
+      <section id="project-pipeline">
+        <h2>Project Management Pipeline</h2>
         <ol>
           <li><h3>Local Setup</h3>
             <ol>
@@ -87,12 +91,9 @@ git push</code></pre>
           </li>
         </ol>
       </section>
-
-<section id="html">
+      <section id="HTML">
         <h2>HTML Reference</h2>
-
-        <!-- Card 1: Boilerplate (Kept because it's essential) -->
-        <article class="card">
+        <article>
           <h3>Standard HTML5 Boilerplate</h3>
           <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
@@ -106,156 +107,430 @@ git push</code></pre>
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
         </article>
-
-        <!-- Card 2: Structuring & Headings -->
-        <article class="card">
-          <h3>Structuring &amp; Headings</h3>
-          <ul>
-            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> — Headings (h1 is most important, h6 is least).</li>
-            <li><code>&lt;p&gt;</code> — Paragraph text.</li>
-            <li><code>&lt;div&gt;</code> — A block-level generic container for grouping content.</li>
-            <li><code>&lt;span&gt;</code> — An inline generic container (e.g., for styling a single word).</li>
-            <li><code>&lt;br&gt;</code> — Line break (empty tag, no closing tag).</li>
-            <li><code>&lt;hr&gt;</code> — Horizontal rule/line (empty tag).</li>
-          </ul>
+        <article>
+          <h3>Defintions</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>Definition</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML</td>
+                <td><dfn><b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage</dfn> is the code used to structure a webpage and its content.</td>
+              </tr>
+              <tr>
+                <td>Element</td>
+                <td>An <dfn>Element</dfn> is the basic building block of HTML documents. It generally consists of an opening tag with zero or more attributes, content, and a closing tag.</td>
+                <td><img src="https://developer.mozilla.org/en-US/docs/Glossary/Element/anatomy-of-an-html-element.png" alt="The anatomy of an html element"></td>
+              </tr>
+              <tr>
+                <td>Opening Tag</td>
+                <td>A <dfn>Opening Tag</dfn> consists of an element name surrounded by the greater-than and less-than symbols. It may contain one or more attributes after the element name and before the closing less-than symbol.</td>
+                <td><code>&lt;section id="Contact Information"&gt;</code></td>
+              </tr>
+              <tr>
+                <td>Void Element</td>
+                <td>A <dfn>Void Element</dfn> is an element with no content and no closing tag.</td>
+                <td><code>&lt;img src="https://developer.mozilla.org/en-US/docs/Glossary/Element/anatomy-of-an-html-element.png" alt="The anatomy of an html element"&gt;</code></td>
+              </tr>
+              <tr>
+                <td>Closing Tag</td>
+                <td>A <dfn>Closing Tag</dfn> follows the content in a non-void element. It consists of the element's opening tag with the name preceded by a forward-slash.</td>
+                <td><code>&lt;/section&gt;</code></td>
+              </tr>
+              <tr>
+                <td>Attribute</td>
+                <td>An <dfn>Attribute</dfn> changes the behavior of an HTML element or provides metadata about it.</td>
+                <td><code>hrf="https://google.com/</code></td>
+              </tr>
+            </tbody>
+          </table>
         </article>
+        <article>
+          <h3>Elements</h3>
+          <h4>Structure and Metadata</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Element</th>
+                  <th>Description</th>
+                  <th>Attributes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                  <td>A legacy declaration that must come first in every HTML document for compatibility reasons.</td>
+                </tr>
+                <tr>
+                  <td><code>&lt;html&gt;</code></td>
+                  <td>The root element of a document which comes directly after the document type declaration. All other elements must be nested within it.</td>
+                  <td><code>global, version, lang</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;head&gt;</code></td>
+                  <td>Contains metadata about the document, like it's title, script, and stylesheets</td>
+                  <td><code>global, profile</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;link&gt;</code></td>
+                  <td>Specifies relationships between the current document and an external resource like a stylesheet or icons.</td>
+                  <td><code>global, href, rel, type, sizes, media</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;meta&gt;</code></td>
+                  <td>A void element which represents metadata not covered by one of the other elements.</td>
+                  <td><code>global, charset, content, media, name</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;title&gt;</code></td>
+                  <td>The document title shown in the browser's title bar or a page tab.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;body&gt;</code></td>
+                  <td>The non-meta content of a page. There can only be one body element in a HTML document.</td>
+                  <td><code>global</code></td>
+                </tr>
+              </tbody>
+            </table>
+          <h4>Content and Sections</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Element</th>
+                  <th>Description</th>
+                  <th>Attributes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;header&gt;</code></td>
+                  <td>Introductory content, typically including logos, navicational aids, a search form, etc.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;hgroup&gt;</code></td>
+                  <td>A heading and related content. Useful to keep a subtitle together with a title.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;nav&gt;</code></td>
+                  <td>A section which provides navigation links, either to parts of the current document, or to other documents on a site.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;main&gt;</code></td>
+                  <td>The dominant content of the body of a document.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;section&gt;</code></td>
+                  <td>A generic standalone section of a document which doesn't have any more specific semantic element to represent it. They should always have headings. Use these instead of <code>&lt;div&gt;</code>!</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;article&gt;</code></td>
+                  <td>A self-contained composition which can or could be independent from the rest of the document.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;aside&gt;</code></td>
+                  <td>A portion of the document whose content is only indirectly related to the main content of the document.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;,&lt;h4&gt;,&lt;h5&gt;,&lt;h6&gt;</code></td>
+                  <td>Six levels of section headings. All headings create a block-level box in the layout. There should only be one <code>&lt;h1&gt;</code> element on a page.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;footer&gt;</code></td>
+                  <td>A closing section typically including copyright information, or information about the author.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;div&gt;</code></td>
+                  <td>AVOID DIVITIS. It is non-semantic, and does not affect flow or layout. Use it when other semantic elements are inappropriate</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;p&gt;</code></td>
+                  <td>A paragraph of related content. They are block-level elements and will automatically close if another block-level element is parsed before the closing tag.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;blockquote&gt;</code></td>
+                  <td>Indicates that the enclosed text is an extended quotation, usually rendered visually by indentation.</td>
+                  <td><code>global, cite</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;figure&gt;</code></td>
+                  <td>Self-contained content, potentially with a caption. The figure and its caption are referenced as a single unit.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;figcaption&gt;</code></td>
+                  <td>A child element of <code>&lt;figure&gt;</code> which describes the figure's contents.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;ul&gt;</code></td>
+                  <td>An unordered list of items, typically rendered as a bulleted list. N.B. don't use deprecated styling attributes. Use CSS properties instead.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;ol&gt;</code></td>
+                  <td>An ordered list of items, typically rendered as a numbered list.</td>
+                  <td><code>global, reversed, start, type</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;li&gt;</code></td>
+                  <td>A child of either <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, or <code>&lt;menu&gt;</code> containing an individual listed item.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;img&gt;</code></td>
+                  <td>Embeds an image into the document. Supported formats: APNG, AVIF, GIF, JPEG, PNG, SVG, WebP</td>
+                  <td><code>src, alt, global, height, sizes, width, </code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;audio&gt;</code></td>
+                  <td>Embeds sound content in documents.</td>
+                  <td><code>src, global, autoplay, controls, loop, muted, preload</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;video&gt;</code></td>
+                  <td>Embeds a media player which supports video playback.</td>
+                  <td><code>src, global, autoplay, controls, heigh, width, sizes, loop, muted, poster</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;embed&gt;</code></td>
+                  <td>Embeds external content from an external source.</td>
+                  <td><code>src, global, type, height, width</code></td>
+                </tr>
+              </tbody>
+            </table>
+          <h4>Text semantics</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Element</th>
+                  <th>Description</th>
+                  <th>Attributes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;a&gt;</code></td>
+                  <td>Together with its <code>href</code> attribute, this creates a hyperlink to web pages, files, email addreses, locations in the current page, or anything else a URL can address.</td>
+                  <td><code>global, download, href, rel</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;code&gt;</code></td>
+                  <td>Indicates a short fragment of computer code, by default displayed with the user agent's default monospace font.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;em&gt;</code></td>
+                  <td>Indicates a stressed emphasis compared to surrounding words. Use <code>&lt;cite&gt;</code> for the title of a work, and <code>&lt;i&gt;</code> for some text set off from the rest.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;cite&gt;</code></td>
+                  <td>The title of a creative work. It may be in an abbreviated form.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;i&gt;</code></td>
+                  <td>Used for alternative voices, taxonomic designations, idiomatic terms, technical terms, throughts, or ship or vessel names.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;strong&gt;</code></td>
+                  <td>Indicates importance, seriousness, or urgency. Typically rendered in bold type.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dfn&gt;</code></td>
+                  <td>A term to be defined.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;mark&gt;</code></td>
+                  <td>Indicates marked or highlighted text.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;q&gt;</code></td>
+                  <td>Indicates an inlie quotation.</td>
+                  <td><code>global, cite</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;sub&gt;</code></td>
+                  <td>Specifies inline text to be displayed as a subscript for typographical reasons.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;sup&gt;</code></td>
+                  <td>Specifies inline text to be displayed as a superscript for typographical reasons.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;u&gt;</code></td>
+                  <td>Indicates a span of inline text with a non-textual annotation, like annotating spelling errors.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;b&gt;</code></td>
+                  <td>To draw the reader's attention towards elements which might not otherwise be important.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;br&gt;</code></td>
+                  <td>A line break.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;span&gt;</code></td>
+                  <td>A generic inline container for phrasing content.</td>
+                  <td><code>global</code></td>
+                </tr>
+              </tbody>
+            </table>
+          <h4>Tables</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Element</th>
+                  <th>Description</th>
+                  <th>Attributes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;table&gt;</code></td>
+                  <td>Represents tabular data.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;thead&gt;</code></td>
+                  <td>Encapsulates a set of table rows comprising the head of the table with information about the columns.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;tbody&gt;</code></td>
+                  <td>Encapsulates a set of table rows comprising the table's main data.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;tfoot&gt;</code></td>
+                  <td>Encapsulates a set of table rows comprising the foot of the table with information about the columns.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;tr&gt;</code></td>
+                  <td>Defines a row of cells in a table. These can then be described as children with either data or header cells.</td>
+                  <td><code>global</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;th&gt;</code></td>
+                  <td>A header cell which is a child of a <code>&lt;tr&gt;</code> element.</td>
+                  <td><code>global, abbr, colspan, headers, rowspan, scope</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;td&gt;</code></td>
+                  <td>A data cell which is a child of a <code>&lt;tr&gt;</code> element.</td>
+                  <td><code>global, colspan, headers, rowspan</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;caption&gt;</code></td>
+                  <td>The caption or title of a table.</td>
+                  <td><code>global</code></td>
+                </tr>
+              </tbody>
+            </table>
+<!--Add in later
+          <h4>Forms</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Element</th>
+                  <th>Description</th>
+                  <th>Attributes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;&gt;</code></td>
+                  <td></td>
+                  <td><code>global</code></td>
+                </tr>
+              </tbody>
+            </table>
 
-        <!-- Card 3: Lists -->
-        <article class="card">
-          <h3>Lists</h3>
-          <p>Lists always require a parent container and child list items.</p>
-          <pre><code>&lt;!-- Unordered (Bulleted) List --&gt;
-&lt;ul&gt;
-  &lt;li&gt;First item&lt;/li&gt;
-  &lt;li&gt;Second item&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!-- Ordered (Numbered) List --&gt;
-&lt;ol&gt;
-  &lt;li&gt;First step&lt;/li&gt;
-  &lt;li&gt;Second step&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
-        </article>
-
-        <!-- Card 4: Tables -->
-        <article class="card">
-          <h3>Tables</h3>
-          <p>Data organized in rows (<code>&lt;tr&gt;</code>) and data cells (<code>&lt;td&gt;</code>).</p>
-          <pre><code>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Header 1&lt;/th&gt;
-      &lt;th&gt;Header 2&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Row 1, Cell 1&lt;/td&gt;
-      &lt;td&gt;Row 1, Cell 2&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
-        </article>
-
-        <!-- Card 5: Links & Embedding -->
-        <article class="card">
-          <h3>Links &amp; Media</h3>
-          <ul>
-            <li><strong>Links:</strong> <code>&lt;a href="url" target="_blank"&gt;Text&lt;/a&gt;</code><br> <em>Note: <code>target="_blank"</code> opens the link in a new tab.</em></li>
-            <li><strong>Images:</strong> <code>&lt;img src="path/to/image.jpg" alt="Description"&gt;</code><br> <em>Note: The <code>alt</code> attribute is critical for accessibility and broken links.</em></li>
-          </ul>
         </article>
       </section>
-
-      <section id="css">
+    -->
+      <section id="CSS">
         <h2>CSS Reference</h2>
+        <article>
+          <h3>CSS Boilerplate</h3><pre><code>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        <!-- Card 1: Syntax & Selectors -->
-        <article class="card">
-          <h3>Syntax &amp; Selectors</h3>
-          <p>CSS rules consist of a <strong>selector</strong> and a declaration block (<strong>property: value;</strong>).</p>
-          <pre><code>/* Element Selector */
-p { color: blue; }
-
-/* Class Selector (uses a dot) */
-.highlight { background-color: yellow; }
-
-/* ID Selector (uses a hash) */
-#main-nav { margin: 0; }
-
-/* Grouped Selector */
-h1, h2, h3 { font-family: Arial, sans-serif; }
-
-/* Descendant Selector (Space) */
-div p { color: gray; } /* Targets p inside div */</code></pre>
-        </article>
-
-        <!-- Card 2: The Box Model -->
-        <article class="card">
-          <h3>The Box Model</h3>
-          <p>Every element in CSS is a box. From the inside out:</p>
-          <ul>
-            <li><strong>Content:</strong> The actual text or image.</li>
-            <li><strong>Padding:</strong> Transparent space <em>inside</em> the border (pushes content inward).</li>
-            <li><strong>Border:</strong> The line that goes around the padding and content.</li>
-            <li><strong>Margin:</strong> Transparent space <em>outside</em> the border (pushes other elements away).</li>
-          </ul>
-          <pre><code>.box {
-  /* box-sizing: border-box includes padding and border in the width */
-  box-sizing: border-box; 
-  width: 300px;
-  padding: 20px;
-  border: 2px solid black;
-  margin: 15px auto; /* auto centers block elements */
-}</code></pre>
-        </article>
-
-        <!-- Card 3: Typography & Colors -->
-        <article class="card">
-          <h3>Typography &amp; Colors</h3>
-          <pre><code>.text-styles {
-  /* Color */
-  color: #333333; /* Hex code */
-  background-color: rgb(240, 240, 240); /* RGB */
-  
-  /* Font */
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 16px; /* or 1rem */
-  font-weight: bold; /* or 700 */
-  font-style: italic;
-  
-  /* Text Formatting */
-  text-align: center; /* left | right | center | justify */
-  text-transform: uppercase;
+body {
   line-height: 1.5;
-}</code></pre>
-        </article>
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #333333;
+  background-color: #f9f9f9;
+}
 
-        <!-- Card 4: Display & Positioning -->
-        <article class="card">
-          <h3>Display &amp; Positioning</h3>
-          <pre><code>.layout-rules {
-  /* Display Flow */
-  display: block; /* Takes up full width, starts on new line */
-  display: inline; /* Only takes up necessary width, ignores top/bottom margin */
-  display: inline-block; /* Inline flow, but respects width/height/margins */
-  display: none; /* Removes element from the page completely */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
-  /* Positioning */
-  position: static; /* Default flow */
-  position: relative; /* Positioned relative to its normal place */
-  position: absolute; /* Positioned relative to closest relative parent */
-  position: fixed; /* Stuck to the viewport (screen) */
-  position: sticky; /* Toggles between relative and fixed on scroll */
-  
-  /* Offsets (used with relative/absolute/fixed/sticky) */
-  top: 10px;
-  left: 20px;
-  z-index: 10; /* Stacking order (higher numbers on top) */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }</code></pre>
         </article>
       </section>
-
+<!--Add in later
+      <section id="JavaScript">
+      </section>
+          -->
     </main>
   </body>
 </html>
+
+
+
+<h3>Standard HTML5 Boilerplate</h3>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
