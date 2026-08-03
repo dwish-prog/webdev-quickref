@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave Web Dev Ref</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Dave's Web Development Quick Reference</h1>
+      <nav>
+        <ul>
+          <li><a href="#project">Project</a></li>
+          <li><a href="#html">HTML</a></li>
+          <li><a href="#css">CSS</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="project">
+        <h2>Project Management</h2>
+        <ol>
+          <li><h3>Local Setup</h3>
+            <ol>
+              <li>Open Git Bash</li>
+              <li>Navigate to your projects folder<pre>
+<code>cd ~/Projects</code></pre></li>
+              <li>Create project folder<pre>
+<code>mkdir my-project</code></pre></li>
+              <li>Create subfolders<pre>
+<code>mkdir assets assets/media assets/fonts</code></pre></li>
+              <li>Create Files<pre>
+<code>touch index.html styles.css README.md .gitignore</code></pre></li>
+            </ol>
+          </li>
+          <li><h3>Collect Assets</h3>
+            <ol start="6">
+              <li>Move media (background images, logo, videos etc.) to <code>assets/media</code></li>
+              <li>Download <code>.woff2</code> font files to <code>assets/fonts/</code> and link in CSS using <code>@font-face</code> OR Select Google Fonts and copy the <code>&lt;link&gt;</code> tags directly into HTML <code>&lt;head&gt;</code>.</li>
+              <li>Write standard HTML boilerplate to <code>index.html</code></li>
+              <li>Add CSS Reset & Base Rules to <code>styles.css</code></li>
+            </ol>
+          </li>
+          <li><h3>Version Control</h3>
+            <ol start="10">
+              <li>Configure <code>.gitignore</code>. Add to plaintext file, for now just with OS junk:<br><pre><code>.DS_Store
+Thumbs.db
+.vscode/</code></pre></li>
+            <li>Initialize Git & Make Initial Commit<br><pre><code>git init
+git branch -M main
+git add .
+git commit -m "Initial commit: basic HTML/CSS setup"</code></pre>
+            </li>
+            <li>Create & Link Remote GitHub Repository
+              <ol type="a">
+                <li>On GitHub, click <em>New Repository</em></li>
+                <li>Name it <code>my-project</code> to match local folder name.</li>
+                <li>Leave everything else unchecked (Don't create readme, .gitignore or license again)</li>
+                <li>Click <em>Create repository</em></li>
+                <li>Run the following commands under <em>or push an existing repository from the command line</em>:<br><pre><code>git remote add origin https://github.com/your-username/my-project.git
+git push -u origin main</code></pre>
+                </li>
+              </ol>
+            </li>
+            </ol>
+          </li>
+          <li><h3>Deployment</h3>
+            <ol start="13">
+              <li>Publish the Live Site.
+                <ol type="a">
+                  <li>On the GitHub repopage go to <em>Settings &gt; Pages</em></li>
+                  <li>Under <em>Build and deployment &gt; Branch</em> set branch to <code>main</code> and folder to <code>/ (root)</code>.</li>
+                  <li>Click save.</li>
+                  <li>After 1-2 minutes hit refresh to get the live URL</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><h3>Daily Workflow</h3>
+            <ol start="14">
+              <li>Whenever you make changes to the code, follow this loop to update GitHub and the site:<br><pre><code>git add .
+git commit -m "Describe what changed"
+git push</code></pre>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+<section id="html">
+        <h2>HTML Reference</h2>
+
+        <!-- Card 1: Boilerplate (Kept because it's essential) -->
+        <article class="card">
+          <h3>Standard HTML5 Boilerplate</h3>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </article>
+
+        <!-- Card 2: Structuring & Headings -->
+        <article class="card">
+          <h3>Structuring &amp; Headings</h3>
+          <ul>
+            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> — Headings (h1 is most important, h6 is least).</li>
+            <li><code>&lt;p&gt;</code> — Paragraph text.</li>
+            <li><code>&lt;div&gt;</code> — A block-level generic container for grouping content.</li>
+            <li><code>&lt;span&gt;</code> — An inline generic container (e.g., for styling a single word).</li>
+            <li><code>&lt;br&gt;</code> — Line break (empty tag, no closing tag).</li>
+            <li><code>&lt;hr&gt;</code> — Horizontal rule/line (empty tag).</li>
+          </ul>
+        </article>
+
+        <!-- Card 3: Lists -->
+        <article class="card">
+          <h3>Lists</h3>
+          <p>Lists always require a parent container and child list items.</p>
+          <pre><code>&lt;!-- Unordered (Bulleted) List --&gt;
+&lt;ul&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered (Numbered) List --&gt;
+&lt;ol&gt;
+  &lt;li&gt;First step&lt;/li&gt;
+  &lt;li&gt;Second step&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        </article>
+
+        <!-- Card 4: Tables -->
+        <article class="card">
+          <h3>Tables</h3>
+          <p>Data organized in rows (<code>&lt;tr&gt;</code>) and data cells (<code>&lt;td&gt;</code>).</p>
+          <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header 1&lt;/th&gt;
+      &lt;th&gt;Header 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Row 1, Cell 1&lt;/td&gt;
+      &lt;td&gt;Row 1, Cell 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </article>
+
+        <!-- Card 5: Links & Embedding -->
+        <article class="card">
+          <h3>Links &amp; Media</h3>
+          <ul>
+            <li><strong>Links:</strong> <code>&lt;a href="url" target="_blank"&gt;Text&lt;/a&gt;</code><br> <em>Note: <code>target="_blank"</code> opens the link in a new tab.</em></li>
+            <li><strong>Images:</strong> <code>&lt;img src="path/to/image.jpg" alt="Description"&gt;</code><br> <em>Note: The <code>alt</code> attribute is critical for accessibility and broken links.</em></li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="css">
+        <h2>CSS Reference</h2>
+
+        <!-- Card 1: Syntax & Selectors -->
+        <article class="card">
+          <h3>Syntax &amp; Selectors</h3>
+          <p>CSS rules consist of a <strong>selector</strong> and a declaration block (<strong>property: value;</strong>).</p>
+          <pre><code>/* Element Selector */
+p { color: blue; }
+
+/* Class Selector (uses a dot) */
+.highlight { background-color: yellow; }
+
+/* ID Selector (uses a hash) */
+#main-nav { margin: 0; }
+
+/* Grouped Selector */
+h1, h2, h3 { font-family: Arial, sans-serif; }
+
+/* Descendant Selector (Space) */
+div p { color: gray; } /* Targets p inside div */</code></pre>
+        </article>
+
+        <!-- Card 2: The Box Model -->
+        <article class="card">
+          <h3>The Box Model</h3>
+          <p>Every element in CSS is a box. From the inside out:</p>
+          <ul>
+            <li><strong>Content:</strong> The actual text or image.</li>
+            <li><strong>Padding:</strong> Transparent space <em>inside</em> the border (pushes content inward).</li>
+            <li><strong>Border:</strong> The line that goes around the padding and content.</li>
+            <li><strong>Margin:</strong> Transparent space <em>outside</em> the border (pushes other elements away).</li>
+          </ul>
+          <pre><code>.box {
+  /* box-sizing: border-box includes padding and border in the width */
+  box-sizing: border-box; 
+  width: 300px;
+  padding: 20px;
+  border: 2px solid black;
+  margin: 15px auto; /* auto centers block elements */
+}</code></pre>
+        </article>
+
+        <!-- Card 3: Typography & Colors -->
+        <article class="card">
+          <h3>Typography &amp; Colors</h3>
+          <pre><code>.text-styles {
+  /* Color */
+  color: #333333; /* Hex code */
+  background-color: rgb(240, 240, 240); /* RGB */
+  
+  /* Font */
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px; /* or 1rem */
+  font-weight: bold; /* or 700 */
+  font-style: italic;
+  
+  /* Text Formatting */
+  text-align: center; /* left | right | center | justify */
+  text-transform: uppercase;
+  line-height: 1.5;
+}</code></pre>
+        </article>
+
+        <!-- Card 4: Display & Positioning -->
+        <article class="card">
+          <h3>Display &amp; Positioning</h3>
+          <pre><code>.layout-rules {
+  /* Display Flow */
+  display: block; /* Takes up full width, starts on new line */
+  display: inline; /* Only takes up necessary width, ignores top/bottom margin */
+  display: inline-block; /* Inline flow, but respects width/height/margins */
+  display: none; /* Removes element from the page completely */
+
+  /* Positioning */
+  position: static; /* Default flow */
+  position: relative; /* Positioned relative to its normal place */
+  position: absolute; /* Positioned relative to closest relative parent */
+  position: fixed; /* Stuck to the viewport (screen) */
+  position: sticky; /* Toggles between relative and fixed on scroll */
+  
+  /* Offsets (used with relative/absolute/fixed/sticky) */
+  top: 10px;
+  left: 20px;
+  z-index: 10; /* Stacking order (higher numbers on top) */
+}</code></pre>
+        </article>
+      </section>
+
+    </main>
+  </body>
+</html>
